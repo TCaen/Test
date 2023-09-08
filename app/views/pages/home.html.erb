@@ -9,8 +9,11 @@
 
 <% if user_signed_in? %>
   <p>Vous êtes connecté en tant que <%= current_user.email %>.</p>
-  <%= link_to 'AJOUTER DE MONEY', add_user_path(current_user) %><br>
 
+  <%= link_to 'Ajouter de l"argent', add_user_path(current_user) %><br>
+   <%= link_to 'Voir les pokemon', pokemons_path %><br>
+   <%= link_to 'Mes Pokémon', mypokemons_user_path(current_user) %>
+<p>portefeuille :  <%= current_user.balance %> euro</p>
 
   <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, data: {turbo_method: :delete} %>
 
