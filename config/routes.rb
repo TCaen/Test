@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users 
 
+  resources :users do
+    member do
+      get 'add' ,to: 'users#add'
+      patch 'update_balance', to: 'users#update'
+    end
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  end
   # Defines the root path route ("/")
-  # root "articles#index"
+   root "pages#home"
 end
